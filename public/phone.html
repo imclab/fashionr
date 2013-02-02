@@ -16,7 +16,10 @@
     var socket = io.connect(window.location.origin);
     
     $("#camera").on("change", function(){
-        socket.emit('click', {"click": true});
+        navigator.geolocation.getCurrentPosition(GetLocation);
+        function GetLocation(location) {
+            socket.emit('click', location);   
+        }
     })
 </script>
 </body>
