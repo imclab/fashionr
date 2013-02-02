@@ -1,10 +1,9 @@
 var express = require('express'),
     app = express.createServer(),
     st = require('node-static'),
-    jquery = require('jquery'),
     io = require('socket.io').listen(app)
 
-app.listen(8080);
+app.listen(22727);
 
 app.use(express.static(__dirname + "/public"));
 
