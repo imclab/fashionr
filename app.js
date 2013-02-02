@@ -4,7 +4,7 @@ var express = require('express'),
     server = require('http').createServer(app)
     io = require('socket.io').listen(server)
 
-app.listen(22727);
+server.listen(22727);
 
 app.use(express.static(__dirname + "/public"));
 
