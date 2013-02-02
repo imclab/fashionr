@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fashionr</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Set Apple icons for when prototype is saved to home screen -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/apple-touch-icon-57x57.png">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link rel="stylesheet" href="ratchet.css">
+<link rel="stylesheet" href="extras.css"/>
+    
+    <!-- Include the compiled Ratchet JS -->
+    <script src="ratchet.js"></script>
+    <script src="js/spin.min.js"></script>
+    <!-- Intro paragraph styles. Delete once you start using this page -->
+    <style type="text/css">
+        .welcome {
+          line-height: 1.5;
+          color: #555;
+        }
+    </style>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  </head>
+  <body>
+
+  <!-- Make sure all your bars are the first things in your <body> -->
+  <header class="bar-title">
+    <h1 class="title">Fashionr</h1>
+  </header>
+
+  <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+  <div class="content">
+    <div class="content-padded">
+      <p class="welcome">Welcome to Fashionr</p>
+    </div>
+
+    <!--<ul class="list inset">
+      <li>
+       
+      </li>
+    </ul>-->
+
+  </div>
+
+  <nav class="bar-tab">
+  <ul class="tab-inner">
+    <li class="tab-item active">
+      <a href="">
+        <img class="tab-icon" src="img/icon-home.png">
+        <div class="tab-label">Home</div>
+      </a>
+    </li>
+    <li class="tab-item">
+      <a href="" id="iconCamera">
+        <img class="tab-icon" src="img/icon-camera.png">
+        <div class="tab-label">Scan</div>
+      </a>
+    </li>
+    <li class="tab-item">
+      <a href="">
+        <img class="tab-icon" src="img/icon-profile.png">
+        <div class="tab-label">My profile</div>
+      </a>
+    </li>
+   
+  </ul>
+</nav>
+  </body>
+
+  <script>
+      var camera = $("#iconCamera").parent("li")
+      pos = camera.position();
+
+      var barTab = $(".bar-tab").first();
+
+      var inputOverlay = $("<input type='file'>");
+      inputOverlay.css({
+          top: 0,
+          left: pos.left,
+          width: camera.width(),
+          height:100,
+          background:"red",
+          position: "absolute",
+          opacity:0
+      });
+      
+      barTab.append(inputOverlay)
+
+      inputOverlay.on("change", function(e) {
+        e.preventDefault()
+        var spinnerHolder = $("<div>");
+        spinnerHolder.css({
+          position:"fixed",
+          left: "50%",
+          top:"50%",
+          "margin-top": -100,
+          "margin-left": -100,
+          width: 200,
+          height:200,
+          background: "rgba(0,0,0,0.8)",
+          "border-radius":"20px"
+        });
+        $("body").append(spinnerHolder);
+
+        var opts = {
+          lines: 13, // The number of lines to draw
+          length: 13, // The length of each line
+          width: 9, // The line thickness
+          radius: 24, // The radius of the inner circle
+          corners: 1, // Corner roundness (0..1)
+          rotate: 0, // The rotation offset
+          color: '#fff', // #rgb or #rrggbb
+          speed: 1, // Rounds per second
+          trail: 60, // Afterglow percentage
+          shadow: false, // Whether to render a shadow
+          hwaccel: false, // Whether to use hardware acceleration
+          className: 'spinner', // The CSS class to assign to the spinner
+          zIndex: 2e9, // The z-index (defaults to 2000000000)
+          top: 'auto', // Top position relative to parent in px
+          left: 'auto' // Left position relative to parent in px
+        };
+        var spinner = new Spinner(opts).spin(spinnerHolder[0]);
+
+        setTimeout(function() {
+          spinnerHolder.remove()
+          PUSH({url:"item.html",transition:"slide-in"})
+        },500)
+      });
+
+
+
+  </script>
+ <script src="/socket.io/socket.io.js"></script>
+ <script>
+  var sendHeartbeat = function() {
+     socket.emit('click', {"click": true});
+  }
+
+   var socket = io.connect(window.location.origin);
+    $("body").on("click","#yesLink",function(e){
+    
+      e.preventDefault();
+      socket.emit('click', {"click": true});
+      PUSH({url:"index.html",transition:"slide-in"})
+    })
+
+ </script>
+
+
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</html>
