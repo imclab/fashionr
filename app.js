@@ -20,6 +20,6 @@ app.get('/phone', function (req, res) {
 */
 io.sockets.on('connection', function (socket) {  
   socket.on('click', function(data){
-
+      socket.broadcast.emit('triggerPinterest', data);
   })
 });
