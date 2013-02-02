@@ -4,7 +4,7 @@ var express = require('express'),
     server = require('http').createServer(app)
     io = require('socket.io').listen(server)
 
-server.listen(22727);
+server.listen(5000);
 
 app.use(express.static(__dirname + "/public"));
 
@@ -18,6 +18,6 @@ app.get('/phone', function (req, res) {
 
 io.sockets.on('connection', function (socket) {  
   socket.on('click', function(data){
-
+      socket.broadcast.emit('triggerPinterest', data);
   })
 });

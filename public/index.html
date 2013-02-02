@@ -6,6 +6,11 @@
 <body>
 <script>
     var socket = io.connect(window.location.origin);
+    
+    socket.on('triggerPinterest', function(data){
+        // ari's logic in here
+        console.log('suppp')
+    })
 </script>
 </body>
 </html>
