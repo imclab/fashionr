@@ -1,7 +1,8 @@
 var express = require('express'),
-    app = express.createServer(),
+    app = express(),
     st = require('node-static'),
-    io = require('socket.io').listen(app)
+    server = require('http').createServer(app)
+    io = require('socket.io').listen(server)
 
 app.listen(22727);
 
