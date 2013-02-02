@@ -12,9 +12,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Set Apple icons for when prototype is saved to home screen -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/apple-touch-icon-57x57.png">
+
+    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="touch-icons/splash.png" />
 
     <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="ratchet.css">
@@ -36,7 +38,9 @@
 
   <!-- Make sure all your bars are the first things in your <body> -->
   <header class="bar-title">
+   
     <h1 class="title">Fashionr</h1>
+  
   </header>
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
@@ -45,11 +49,7 @@
       <p class="welcome">Welcome to Fashionr</p>
     </div>
 
-    <!--<ul class="list inset">
-      <li>
-       
-      </li>
-    </ul>-->
+   
 
   </div>
 
@@ -76,9 +76,27 @@
    
   </ul>
 </nav>
+
+<div id="myPopover" class="popover">
+  <header class="popover-header">
+    
+    <h3 class="title">Pinned. Share to:</h3>
+    <a class="button" href="#">
+      Skip
+    </a>
+  </header>
+  <ul class="list">
+    <li><a href="" data-ignore="push" id="btnFb">Facebook</a></li>
+    <li>Twitter</li>
+    <li>Tumblr</li>
+  </ul>
+</div>
+
+
   </body>
 
   <script>
+    var doSetup = function() {
       var camera = $("#iconCamera").parent("li")
       pos = camera.position();
 
@@ -123,8 +141,8 @@
           color: '#fff', // #rgb or #rrggbb
           speed: 1, // Rounds per second
           trail: 60, // Afterglow percentage
-          shadow: false, // Whether to render a shadow
-          hwaccel: false, // Whether to use hardware acceleration
+          shadow: true, // Whether to render a shadow
+          hwaccel: true, // Whether to use hardware acceleration
           className: 'spinner', // The CSS class to assign to the spinner
           zIndex: 2e9, // The z-index (defaults to 2000000000)
           top: 'auto', // Top position relative to parent in px
@@ -137,7 +155,9 @@
           PUSH({url:"item.html",transition:"slide-in"})
         },500)
       });
+    }
 
+    doSetup();
 
 
   </script>
@@ -152,7 +172,18 @@
     
       e.preventDefault();
       socket.emit('click', {"click": true});
-      PUSH({url:"index.html",transition:"slide-in"})
+
+      $("#myPopover").addClass("visible").css("display","block")
+
+      /*PUSH({url:"index.html",transition:"slide-in"})
+      setTimeout(function() {
+        doSetup();
+      },100)*/
+    })
+
+    $("body").on("click",'#btnFb', function(e) {
+      e.preventDefault();
+      window.location = "https://m.facebook.com/dialog/feed?app_id=150580471766416&display=touch&redirect_uri=http%3A%2F%2Fapp.fashionr.com:5000%2Fphone%2F&picture=http%3A%2F%2Fi.imgur.com%2FNZSElvX.jpg&caption=Grey+blazer";
     })
 
  </script>
