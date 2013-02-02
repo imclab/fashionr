@@ -14,7 +14,7 @@
 <input id="camera" type="file"</>
 <script>
     var socket = io.connect(window.location.origin);
-    
+
     $("#camera").on("change", function(){
         navigator.geolocation.getCurrentPosition(GetLocation);
         function GetLocation(location) {

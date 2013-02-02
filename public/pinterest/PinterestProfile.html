@@ -30,7 +30,23 @@
     P.IS_AUTHENTICATED = true;
 </script>
         
-    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect(window.location.origin);
+        
+        socket.on('triggerPinterest', function(data){
+            // ari's logic in here
+            // ari - here is the blazer
+            //http://www.my-wardrobe.com/de/wolsey-1755/brown-herringbone-chester-land-blazer-769337
+            console.log('suppp')
+        })
+    </script>
+    <script>
+        function showDummy() {
+            $('#fashionr_dummy').removeClass('hidden');
+            $(window).resize();
+        }
+    </script>
       
     
     <meta name="description" content="Ari is using Pinterest, an online pinboard to collect and share what inspires you.">
@@ -1276,7 +1292,7 @@ a.fb_button_small_rtl:active{background-position:right -458px}
   
   
 
-  <div class="pin" data-id="112801165637486411" data-closeup-url="http://media-cache-ec3.pinterest.com/550/44/75/e2/4475e26f242f2884028fc7ade38b0aef.jpg" data-width="418" data-height="496" style="top: 0px; left: 0px;" data-col="0">
+  <div id="fashionr_dummy" class="pin hidden" data-id="112801165637486411" data-closeup-url="http://media-cache-ec3.pinterest.com/550/44/75/e2/4475e26f242f2884028fc7ade38b0aef.jpg" data-width="418" data-height="496" style="top: 0px; left: 0px;" data-col="0">
     
 
     <div class="PinHolder">
@@ -1326,7 +1342,7 @@ a.fb_button_small_rtl:active{background-position:right -458px}
 
         
         
-          <img src="./PinterestProfile_files/4475e26f242f2884028fc7ade38b0aef.jpg" alt="LL Bean Service Boot" data-componenttype="MODAL_PIN" class="PinImageImg" style="height: 228px;">
+          <img src="blazer.jpg" alt="Herringbone Blazer" data-componenttype="MODAL_PIN" class="PinImageImg" style="height: 228px;">
         
 
         
@@ -1340,7 +1356,7 @@ a.fb_button_small_rtl:active{background-position:right -458px}
     
 
     
-    <p class="description">LL Bean Service Boot</p>
+    <p class="description">Herringbone Blazer</p>
 
     
 
@@ -1349,20 +1365,7 @@ a.fb_button_small_rtl:active{background-position:right -458px}
     
     
     <p class="stats colorless">
-      <span class="LikesCount">
-        
-          1 like
-        
-      </span>
-
-      <span class="CommentsCount hidden">
-        
-      </span>
-
       
-        <span class="RepinsCount">
-          1 repin
-        </span>
       
     </p>
 
@@ -1377,7 +1380,7 @@ a.fb_button_small_rtl:active{background-position:right -458px}
         
           <p class="NoImage">
             
-              <a href="http://www.llbean.com/llb/shop/73634?feat=775-GN1&attrValue_0=Brown&productId=1224977" target="_blank" rel="nofollow">llbean.com</a>
+              <a href="http://www.my-wardrobe.com/de/wolsey-1755/brown-herringbone-chester-land-blazer-769337" target="_blank" rel="nofollow">my-wardrobe.com</a>
             
           </p>
         
