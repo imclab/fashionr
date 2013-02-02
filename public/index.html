@@ -39,12 +39,27 @@
             // ari - here is the blazer
             //http://www.my-wardrobe.com/de/wolsey-1755/brown-herringbone-chester-land-blazer-769337
             console.log('suppp')
+            showDummy();
         })
     </script>
+    <style>
+    	.pin_override {
+			box-shadow: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			background-color:inherit;
+    	}
+    </style>
     <script>
         function showDummy() {
-            $('#fashionr_dummy').removeClass('hidden');
+            $('#fashionr_dummy_dummy').removeClass('hidden');
             $(window).resize();
+
+            setTimeout(function() {
+	            $('#fashionr_dummy_dummy').removeClass('pin_override');
+	            $('#fashionr_dummy_dummy .container').html($('#fashionr_dummy').html());
+	            $('#fashionr_dummy_dummy .container').fadeIn('slow');
+	        }, 500);
         }
     </script>
       
@@ -1291,7 +1306,9 @@ a.fb_button_small_rtl:active{background-position:right -458px}
   
   
   
-
+<div id="fashionr_dummy_dummy" class="pin pin_override hidden" style="width: 192px; height: 296px; background-color: inherit;">
+	<div class="container" style="display:none;"></div>
+</div>
   <div id="fashionr_dummy" class="pin hidden" data-id="112801165637486411" data-closeup-url="http://media-cache-ec3.pinterest.com/550/44/75/e2/4475e26f242f2884028fc7ade38b0aef.jpg" data-width="418" data-height="496" style="top: 0px; left: 0px;" data-col="0">
     
 
@@ -1299,99 +1316,51 @@ a.fb_button_small_rtl:active{background-position:right -458px}
       
       <div class="actions">
         
-  <a class="Button Button11 WhiteButton ContrastButton repin_link" data-componenttype="MODAL_REPIN" data-id="112801165637486411" href="http://pinterest.com/pin/112801165637486411/repin/">
-    <em></em><span>Repin</span>
-  </a>
+		<a class="Button Button11 WhiteButton ContrastButton repin_link" data-componenttype="MODAL_REPIN" data-id="112801165637486411" href="http://pinterest.com/pin/112801165637486411/repin/">
+		<em></em><span>Repin</span>
+		</a>
 
-        
-        
-  <a class="Button Button11 WhiteButton ContrastButton editbutton" data-id="112801165637486411" href="http://pinterest.com/pin/112801165637486411/edit/">
-    Edit
-  </a>
+		<a class="Button Button11 WhiteButton ContrastButton editbutton" data-id="112801165637486411" href="http://pinterest.com/pin/112801165637486411/edit/">
+		Edit
+		</a>
 
-            
-            <span style="display:none">
-                
-  <a class="Button WhiteButton ContrastButton Button11 likebutton" data-id="112801165637486411" data-text-like="Like" data-text-unlike="Unlike" href="http://pinterest.com/arifuchs/get-in-my-closet/#">
-    <em></em>Like
-  </a>
 
-            </span>
-        
-        
-  <a class="Button Button11 WhiteButton ContrastButton comment" data-id="112801165637486411" href="http://pinterest.com/arifuchs/get-in-my-closet/#">
-    <em></em>Comment
-  </a>
+		<span style="display:none">
+
+		<a class="Button WhiteButton ContrastButton Button11 likebutton" data-id="112801165637486411" data-text-like="Like" data-text-unlike="Unlike" href="http://pinterest.com/arifuchs/get-in-my-closet/#">
+		<em></em>Like
+		</a>
+
+		</span>
+
+
+		<a class="Button Button11 WhiteButton ContrastButton comment" data-id="112801165637486411" href="http://pinterest.com/arifuchs/get-in-my-closet/#">
+		<em></em>Comment
+		</a>
 
       </div>
 
       
-          <div class="bottom">
-            <button class="Button Button11 WhiteButton ContrastButton cover_pin" type="button">
-              Set Board Cover
-            </button>
-          </div>
-      
+      <div class="bottom">
+        <button class="Button Button11 WhiteButton ContrastButton cover_pin" type="button">
+          Set Board Cover
+        </button>
+      </div>
 
-      
-      
-      
       <a href="http://pinterest.com/pin/112801165637486411/" class="PinImage ImgLink">
-        
-        
-
-        
-        
-          <img src="blazer.jpg" alt="Herringbone Blazer" data-componenttype="MODAL_PIN" class="PinImageImg" style="height: 228px;">
-        
-
-        
-        
-          
-        
+          <img src="blazer.jpg" alt="Herringbone Blazer" data-componenttype="MODAL_PIN" class="PinImageImg" style="height: 228px;">         
       </a>
     </div>
-
-    
-    
-
     
     <p class="description">Herringbone Blazer</p>
-
-    
-
-    
-    
-    
-    
-    <p class="stats colorless">
-      
-      
-    </p>
-
-    
-
-    
-
+    <p class="stats colorless"></p>
     
     <div class="convo attribution clearfix">
-      
-      
-        
           <p class="NoImage">
-            
               <a href="http://www.my-wardrobe.com/de/wolsey-1755/brown-herringbone-chester-land-blazer-769337" target="_blank" rel="nofollow">my-wardrobe.com</a>
-            
-          </p>
-        
-      
+          </p>       
     </div>
 
-    
-    
-
-    
-    
       <div class="write convo clearfix" style="display: none;">
         <a href="http://pinterest.com/arifuchs/" class="ImgLink">
           <img src="./PinterestProfile_files/arifuchs-60.jpg" alt="Profile picture of you">
@@ -1402,23 +1371,15 @@ a.fb_button_small_rtl:active{background-position:right -458px}
           <button class="Button WhiteButton Button11 grid_comment_button" type="button">Comment</button>
         </form>
       </div>
-    
-
   </div>
 
 
     
 
-
-    
-
         
         
 
-        
-  
-  
-  
+
 
   <div class="pin" data-id="112801165637282100" data-closeup-url="http://media-cache-ec3.pinterest.com/550/90/32/dc/9032dcfcbaa7002a0830768b3abbda25.jpg" data-width="418" data-height="418" style="top: 0px; left: 237px;" data-col="1">
     
