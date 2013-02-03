@@ -1,18 +1,119 @@
 <!DOCTYPE html>
-<html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-<script src="/socket.io/socket.io.js"></script>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>iFridge</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="foundation.min.css"/>
+<link rel="stylesheet" href="dash.css"/>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
 </head>
 <body>
-<script>
-    var socket = io.connect(window.location.origin);
-    
-    socket.on('triggerPinterest', function(data){
-        // real time pins
-        // best selling items
-        // how many total pins this month
-        // how many pins of that item
-    })
-</script>
+  
+  <!-- Header and Nav -->
+  <br><br><br>
+  <div class="row">
+    <div class="three columns">
+      <h1>Fashionr</h1>
+    </div>
+  </div>
+  
+  <!-- End Header and Nav -->
+  
+  <!-- Three-up Content Blocks -->
+  
+  <div class="row">
+  
+    <div class="seven columns">
+        <dl class="vertical" id="fridge">
+          <dd id="emptyshelf">
+              <div class="empty">
+                <img id="blazer" src="blazer.jpg"/>
+                <div id="label">Men's Herringbone Blazer
+                    <br>
+                    <strong>Pinned at Alley NYC</strong>
+                    <br>
+                    <strong>Total Pins: 1</strong></div>
+          </dd>
+        </dl>
+    </div>
+
+    <!-- Begin sidebar -->
+    <div id="sidebar" class="four columns">
+
+        <h4 id="alerttitle" style="display:none;">Alert:</h4>
+        <div id="alert" class="row module" style="display: none;">
+            <div class="four columns">
+                <img src='images/pretzel.svg'>
+            </div>
+            <div class="eight columns">
+            </div>
+        </div>
+
+        <h4>Today's Pins:</h4>
+        <div id="calories" class="1 pins">
+            <div class="pins">0</div>
+            <div class="four columns">
+            </div>
+            <div class="eight columns">
+            </div>
+        </div>
+
+        <h4>Total Pin Value:</h4>
+        <div id="nutrition" class="850 pins">
+            <div class="pins">$0</div>
+        </div>
+
+    </div>
+    <!-- End Sidebar -->
+
+  </div>
+  <!-- End main -->
+  
+  <!-- Footer -->
+  
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Copyright your mother.</p>
+        </div>
+      </div>
+    </div> 
+  </footer>
+  <div id="music"></div>
+  <script>
+      var socket = io.connect(window.location.origin);
+
+      socket.on('triggerPinterest', function(data){
+          $('.empty').css('display','inline-block');
+          $('.850').html('$850');
+          $('.1').html('1');
+      })
+  </script>  
+
+  <script src="jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </body>
 </html>

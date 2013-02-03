@@ -1,0 +1,12 @@
+#blazer {
+  height: 300px;
+}
+
+.pins {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.empty {
+  display: none;
+}
